@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Copyright (c) 2015-present, Facebook, Inc.
+ * Copyright (c) 2020-present, Skyslit Network Private Limited
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
@@ -52,7 +52,4 @@ if (['build', 'eject', 'start', 'test', 'build-server', 'start-server'].includes
 } else {
   console.log('Unknown script "' + script + '".');
   console.log('Perhaps you need to update react-scripts?');
-  console.log(
-    'See: https://facebook.github.io/create-react-app/docs/updating-to-new-releases'
-  );
 }
