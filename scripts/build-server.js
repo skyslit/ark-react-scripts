@@ -35,7 +35,7 @@ const path = require('path');
 const chalk = require('react-dev-utils/chalk');
 const fs = require('fs-extra');
 const webpack = require('webpack');
-const configFactory = require('../config/webpack.config');
+const configFactory = require('../config/server.webpack.config');
 const paths = require('../config/paths');
 const checkRequiredFiles = require('react-dev-utils/checkRequiredFiles');
 const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
@@ -65,8 +65,7 @@ const config = configFactory('production');
 // We require that you explicitly set browsers and do not fall back to
 // browserslist defaults.
 const { checkBrowsers } = require('react-dev-utils/browsersHelper');
-function initiateProductionBuild() {
-  checkBrowsers(paths.appPath, isInteractive)
+checkBrowsers(paths.appPath, isInteractive)
   .then(() => {
     // First, read the current file sizes in build directory.
     // This lets us display how much they changed later.
@@ -144,9 +143,6 @@ function initiateProductionBuild() {
     }
     process.exit(1);
   });
-}
-
-initiateProductionBuild();
 
 // Create the production build and print the deployment instructions.
 function build(previousFileSizes) {
