@@ -36,6 +36,7 @@ const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 const getCacheIdentifier = require('react-dev-utils/getCacheIdentifier');
 // @remove-on-eject-end
 const postcssNormalize = require('postcss-normalize');
+const VirtualModulesPlugin = require('webpack-virtual-modules');
 
 const appPackageJson = require(paths.appPackageJson);
 
@@ -64,6 +65,10 @@ const sassModuleRegex = /\.module\.(scss|sass)$/;
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
 module.exports = function(webpackEnv) {
   
+  var virtualModules = new VirtualModulesPlugin({
+    'src/index.tsx': fs.readFileSync(path.join(__dirname, './../module-dev/assets/bootstrap.tsx'), 'utf-8')
+  });
+
   const isEnvDevelopment = webpackEnv === 'development';
   const isEnvProduction = webpackEnv === 'production';
 
@@ -164,7 +169,7 @@ module.exports = function(webpackEnv) {
       isEnvDevelopment &&
         require.resolve('react-dev-utils/webpackHotDevClient'),
       // Finally, this is your app's code:
-      paths.appModuleJs,
+      './src/index.tsx',
       // We include the app code last so that if there is a runtime error during
       // initialization, it doesn't blow up the WebpackDevServer client, and
       // changing JS code would still trigger a refresh.
@@ -559,6 +564,7 @@ module.exports = function(webpackEnv) {
       ],
     },
     plugins: [
+      virtualModules,
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign(
