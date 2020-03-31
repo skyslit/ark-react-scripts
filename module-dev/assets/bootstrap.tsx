@@ -14,11 +14,11 @@ export interface PackageType {
 export type ConfigType = BaseConfigType
 
 const _package = ArkPackage.getInstance<PackageType, ConfigType>();
+_package.registerModule('Default', new DefaultModule());
+
 _package.configure({
     autoConfigureInitialRoutes: true
 })
-
-_package.registerModule('Default', new DefaultModule());
 
 _package.initialize('Browser', (err, opts) => {
     ReactDOM.render(
