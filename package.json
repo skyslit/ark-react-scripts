@@ -1,6 +1,6 @@
 {
   "name": "@skyslit/ark-react-scripts",
-  "version": "3.4.3",
+  "version": "3.4.4",
   "description": "Configuration and scripts for Ark React App",
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
     "config",
     "lib",
     "scripts",
+    "module-dev",
     "template",
     "template-typescript",
     "utils"
