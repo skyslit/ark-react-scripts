@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from 'reactstrap';
-import logo from './sk-logo.png';
 
 const DeveloperMenuModal = (props: any) => {
     const [modal, setModal] = useState(false);
@@ -44,7 +43,7 @@ const DeveloperMenuModal = (props: any) => {
                 </ModalBody>
                 <ModalFooter className="position-relative">
                     <div style={{ float: 'left', position: 'absolute', left: '0.75rem', bottom: 'calc(34% - 12px)' }}>
-                        <small>Compiled by</small><br /><img src={logo} width={70} />
+                        <small>Compiled by</small><br /><img src={require('./sk-logo.png')} width={70} />
                     </div>
                     <Button color="primary" onClick={toggle}>Close</Button>
                 </ModalFooter>
