@@ -43,7 +43,7 @@ const DeveloperMenuModal = (props: any) => {
                 </ModalBody>
                 <ModalFooter className="position-relative">
                     <div style={{ float: 'left', position: 'absolute', left: '0.75rem', bottom: 'calc(34% - 12px)' }}>
-                        <small>Compiled by</small><br /><img src={require('./sk-logo.png')} width={70} />
+                        <small>Compiled by</small><br /><img src={require('./sk-logo.png')} alt="Skyslit Logo" width={70} />
                     </div>
                     <Button color="primary" onClick={toggle}>Close</Button>
                 </ModalFooter>
