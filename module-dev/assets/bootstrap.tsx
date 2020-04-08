@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import { Provider } from 'react-redux';
+import { Provider, connect } from 'react-redux';
 import { ArkPackage, BaseConfigType } from '@skyslit/ark-react';
 import DefaultModule from './module';
 import './../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -23,7 +23,7 @@ _package.configure({
 _package.initialize('Browser', (err, opts) => {
     ReactDOM.render(
         <HelmetProvider>
-            <Provider store={opts.setupStore(true)}>
+            <Provider store={opts.setupStore(connect, true)}>
                 <opts.Router />
             </Provider>
         </HelmetProvider>,
