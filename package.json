@@ -1,6 +1,6 @@
 {
   "name": "@skyslit/ark-react-scripts",
-  "version": "3.4.5",
+  "version": "3.4.6",
   "description": "Configuration and scripts for Ark React App",
   "repository": {
     "type": "git",
@@ -87,7 +87,8 @@
   },
   "devDependencies": {
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "node-sass": "^4.13.1"
   },
   "optionalDependencies": {
     "fsevents": "2.1.2"

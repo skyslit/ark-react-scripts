@@ -66,7 +66,10 @@ const sassModuleRegex = /\.module\.(scss|sass)$/;
 module.exports = function(webpackEnv) {
   
   var virtualModules = new VirtualModulesPlugin({
-    'src/index.tsx': fs.readFileSync(path.join(__dirname, './../module-dev/assets/bootstrap.tsx'), 'utf-8')
+    'src/index.tsx': fs.readFileSync(path.join(__dirname, './../module-dev/assets/bootstrap.tsx'), 'utf-8'),
+    'src/tools.tsx': fs.readFileSync(path.join(__dirname, './../module-dev/tools/DeveloperMenuModal.tsx'), 'utf-8'),
+    'src/sk-logo.png': fs.readFileSync(path.join(__dirname, './../module-dev/tools/sk-logo.png')),
+    'src/assets/styles/main.scss': fs.readFileSync(path.join(__dirname, './../module-dev/assets/style.scss'), 'utf-8')
   });
 
   const isEnvDevelopment = webpackEnv === 'development';
