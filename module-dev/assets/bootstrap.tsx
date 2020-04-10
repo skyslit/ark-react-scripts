@@ -6,6 +6,8 @@ import { Provider, connect } from 'react-redux';
 import { ArkPackage, BaseConfigType } from '@skyslit/ark-react';
 import DefaultModule from './module';
 import DeveloperMenuModal from './tools';
+import i18next from 'i18next'
+import { I18nextProvider, initReactI18next } from "react-i18next";
 import './../node_modules/@fortawesome/fontawesome-free/css/all.css';
 import './assets/styles/main.scss';
 
@@ -17,6 +19,8 @@ export type ConfigType = BaseConfigType
 
 const _package = ArkPackage.getInstance<PackageType, ConfigType>();
 _package.registerModule('Default', new DefaultModule());
+
+_package.usei18next(i18next, I18nextProvider, initReactI18next);
 
 _package.registerThemes(
     {
