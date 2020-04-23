@@ -53,6 +53,7 @@ const WARN_AFTER_BUNDLE_GZIP_SIZE = 512 * 1024;
 const WARN_AFTER_CHUNK_GZIP_SIZE = 1024 * 1024;
 
 const isInteractive = process.stdout.isTTY;
+const useServer = fs.existsSync(paths.appServerJs);
 
 // Warn and crash if required files are missing
 if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
@@ -60,7 +61,7 @@ if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
 }
 
 // Generate configuration
-const config = configFactory('production');
+const config = configFactory('production', useServer);
 
 // We require that you explicitly set browsers and do not fall back to
 // browserslist defaults.
@@ -112,7 +113,7 @@ function initiateProductionBuild() {
 
       const appPackage = require(paths.appPackageJson);
       const publicUrl = paths.publicUrlOrPath;
-      const publicPath = config.output.publicPath;
+      const publicPath = config[0].output.publicPath;
       const buildFolder = path.relative(process.cwd(), paths.appBuild);
       printHostingInstructions(
         appPackage,
