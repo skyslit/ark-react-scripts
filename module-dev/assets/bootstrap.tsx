@@ -8,7 +8,7 @@ import DefaultModule from './module';
 import DeveloperMenuModal from './tools';
 import i18next from 'i18next'
 import { I18nextProvider, initReactI18next } from "react-i18next";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Redirect } from "react-router-dom";
 import { Route, Switch } from "react-router";
 import './../node_modules/@fortawesome/fontawesome-free/css/all.css';
 import './assets/styles/main.scss';
@@ -23,7 +23,16 @@ const _package = ArkPackage.getInstance<PackageType, ConfigType>();
 _package.registerModule('Default', new DefaultModule());
 
 _package.usei18next(i18next, I18nextProvider, initReactI18next)
-.useRouter(BrowserRouter, Switch, Route);
+.useRouter(BrowserRouter, Switch, Route, Redirect);
+
+_package.configOpts = {
+    default: {
+      Main: {
+        baseURL: 'http://localhost:5000',
+        withCredentials: true
+      }
+    }
+  }
 
 _package.registerThemes(
     {
